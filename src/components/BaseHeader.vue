@@ -22,9 +22,6 @@ header{
     justify-content: flex-start;
     align-items: center;
   }
-  img{
-    width: auto;
-    max-height: 100%;
-  }
+
 }
 </style>
