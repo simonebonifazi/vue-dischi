@@ -25,6 +25,10 @@ export default {
   padding:0;
   box-sizing: border-box;
 }
+
+body{
+  font-family: 'Roboto', sans-serif;
+}
 .container{
   width:976px;
   margin: 0 auto;

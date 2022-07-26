@@ -35,12 +35,15 @@ data(){
 /*main*/
 main{
   background-color: #1E2D3B;
-  height: calc(100vh - 50px);
+  height: calc(100% - 50px);
 
+  width:100%;
+
+  padding: 100px;
   .deck{
     display: flex;
     flex-wrap: wrap;
-
+  
   }
 }
 </style>
