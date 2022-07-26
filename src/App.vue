@@ -10,7 +10,7 @@
 import BaseHeader from './components/BaseHeader.vue'
 import MainContent from './components/MainContent.vue'
 export default {
-  name: 'spoty-demo',
+  name: 'SpotyDemo',
   components: {
     BaseHeader,
     MainContent,
