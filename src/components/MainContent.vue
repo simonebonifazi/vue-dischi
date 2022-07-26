@@ -2,7 +2,7 @@
      <main>
       <div class="container deck">
       
-            <BaseCard  />
+            <BaseCard v-for="(card, i) in cards" :key="i" :card="card" />
           
         
       </div>
@@ -10,10 +10,24 @@
 </template>
 
 <script>
+import axios from 'axios'
 import BaseCard from './BaseCard.vue'
 export default {
 name:"MainContent",
 components: {BaseCard},
+data(){
+        return{
+            cards: []
+
+        }
+    },
+    mounted(){
+        axios.get('https://flynn.boolean.careers/exercises/api/array/music')
+        .then((res)=>{
+            this.cards= res.data.response
+        
+        })
+    }
 }
 </script>
 

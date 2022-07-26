@@ -1,7 +1,7 @@
 <template>
-    <div >
+    
 
-        <figure class="card" v-for="card in cards" :key="card.title">
+        <figure class="card">
             <img :src="card.poster">
           <figcaption>
              <h3 v-text="card.title"></h3>
@@ -10,26 +10,17 @@
              <h6 v-text="card.year"> </h6>
           </figcaption>
         </figure>
-    </div>
+    
 </template>
 
 <script>
-import axios from "axios"
+
 export default {
     name:"BaseCard",
-    data(){
-        return{
-            cards: []
-
-        }
+    props:{
+        card: Object,
     },
-    mounted(){
-        axios.get('https://flynn.boolean.careers/exercises/api/array/music')
-        .then((res)=>{
-            this.cards= res.data.response
-        
-        })
-    }
+    
 }
 </script>
 
