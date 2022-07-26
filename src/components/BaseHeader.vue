@@ -14,7 +14,7 @@ name: "BaseHeader"
 
 <style lang="scss" scoped>
 header{
-  height: 100px;
+  height: 50px;
   background-color: #2E3A46;
   figure{
     height: 100%;
