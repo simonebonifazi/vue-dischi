@@ -34,6 +34,10 @@ header{
   figure{
     height: 100%;
   }
+  select{
+    padding: 5px;
+    border-radius: 5px;
+  }
 
 }
 </style>
