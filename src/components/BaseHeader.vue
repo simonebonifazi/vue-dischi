@@ -3,17 +3,19 @@
       <figure>
         <img src="https://th.bing.com/th/id/R.57dd160d1e8f82b1113ca3f73393621c?rik=EHp%2bG6a6uyaHaA&pid=ImgRaw&r=0" alt="logo">
       </figure>
-
-      <GenreSelector/>
+     
+      <!-- <GenreSelector/> -->
  
   </header>
 </template>
 
 <script>
-import GenreSelector from './GenreSelector.vue'
+// import GenreSelector from './GenreSelector.vue'
 export default {
 name: "BaseHeader",
-components: {GenreSelector,},
+// components: {GenreSelector,},
+
+
 }
 </script>
 
@@ -30,7 +32,6 @@ header{
   figure{
     height: 100%;
   }
- 
-
+  
 }
 </style>
