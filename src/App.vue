@@ -22,14 +22,19 @@ export default {
         genresList: []
     }
   },
-      mounted(){
-        axios.get('https://flynn.boolean.careers/exercises/api/array/music')
+  methods:{
+    getAllCards(){
+     axios.get('https://flynn.boolean.careers/exercises/api/array/music')
         .then((res)=>{
             this.cards= res.data.response;
 
           this.cards.forEach((card) => {
           if (!this.genresList.includes(card.genre)) this.genresList.push(card.genre);})
     })
+    }
+  },
+      mounted(){
+   this.getAllCards()
 },
 }
 </script>
