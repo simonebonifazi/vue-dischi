@@ -2,8 +2,8 @@
      <main>
 
       <select name="search-for-genre" id="search-for-genre"  v-model="genreSelected">  
-              <option v-for="(genre, i) in genres" :key="i" :value="genre.value" >
-           {{ genre["text"] }}
+              <option v-for="(genre, i) in genres" :key="i" :value="genre" >
+           {{ genre }}
             </option>
         <!-- <option v-for="(genre, i) in filteredByGenre" :key="i" :value="genre.value" ></option> -->
         <!-- <option value="Jazz">jazz</option>
@@ -31,24 +31,18 @@ data(){
         return{
             genreSelected:"",
             cards: [],
-            genres: [
-
-              {value: 'default', text: '--seleziona un genere--'},
-              {value: 'Rock', text: 'Rock'},
-              {value: 'Pop', text: 'Pop'},
-              {value: 'Metal',text: 'Metal'},
-              {value: 'Jazz',text: 'Jazz'},
-
-            ]
+            genres: []
         }
     },
     mounted(){
         axios.get('https://flynn.boolean.careers/exercises/api/array/music')
         .then((res)=>{
-            this.cards= res.data.response
+            this.cards= res.data.response;
 
-        })
-    }
+          this.cards.forEach((card) => {
+          if (!this.genres.includes(card.genre)) this.genres.push(card.genre);})
+    })
+},
 }
 </script>
 
