@@ -9,30 +9,26 @@
 </template>
 
 <script>
-import axios from 'axios'
+
 import BaseCard from './BaseCard.vue'
 export default {
 name:"MainContent",
 components: {BaseCard},
 data(){
         return{
-            genreChoosed:"",
-            cards: [],
-            genres: []
+         
+          
+          
         }
+    },
+    props:{
+      cards: Array,
+      
     },
     computed: {
    
     },
-    mounted(){
-        axios.get('https://flynn.boolean.careers/exercises/api/array/music')
-        .then((res)=>{
-            this.cards= res.data.response;
 
-          this.cards.forEach((card) => {
-          if (!this.genres.includes(card.genre)) this.genres.push(card.genre);})
-    })
-},
 }
 </script>
 

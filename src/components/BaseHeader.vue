@@ -4,7 +4,7 @@
         <img src="https://th.bing.com/th/id/R.57dd160d1e8f82b1113ca3f73393621c?rik=EHp%2bG6a6uyaHaA&pid=ImgRaw&r=0" alt="logo">
       </figure>
      
-      <GenreSelector/>
+      <GenreSelector :genresList="genresList" />
  
   </header>
 </template>
@@ -14,7 +14,9 @@
 export default {
 name: "BaseHeader",
  components: {GenreSelector,},
-
+props: {
+  genresList: Array
+}
 
 }
 </script>

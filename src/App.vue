@@ -1,12 +1,13 @@
 <template>
   <div>
-    <BaseHeader />
-    <MainContent />
+    <BaseHeader :genresList="genresList" />
+    <MainContent :cards="cards"  />
    
   </div>
 </template>
 
 <script>
+import axios from 'axios'
 import BaseHeader from './components/BaseHeader.vue'
 import MainContent from './components/MainContent.vue'
 export default {
@@ -14,7 +15,22 @@ export default {
   components: {
     BaseHeader,
     MainContent,
-  }
+  },
+  data(){
+    return{
+        cards: [],
+        genresList: []
+    }
+  },
+      mounted(){
+        axios.get('https://flynn.boolean.careers/exercises/api/array/music')
+        .then((res)=>{
+            this.cards= res.data.response;
+
+          this.cards.forEach((card) => {
+          if (!this.genresList.includes(card.genre)) this.genresList.push(card.genre);})
+    })
+},
 }
 </script>
 

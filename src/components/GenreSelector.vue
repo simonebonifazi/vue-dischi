@@ -1,6 +1,7 @@
 <template>
      <select name="search-for-genre" id="search-for-genre" >
-        <option value="default">Seleziona genere</option>
+        <option value="default"> --Seleziona una voce--</option>
+        <option v-for="(genre,i) in genresList" :key="i" :value="genre" v-text="genre"></option>
        
     </select>
 </template>
@@ -9,7 +10,7 @@
 export default {
 name: "GenreSelector",
 props:{
-    option: Array,
+    genresList: Array
 }
 }
 </script>
