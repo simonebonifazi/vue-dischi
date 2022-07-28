@@ -1,21 +1,8 @@
 <template>
      <main>
-
-      <select name="search-for-genre" id="search-for-genre"  v-model="genreSelected">  
-              <option v-for="(genre, i) in genres" :key="i" :value="genre" >
-           {{ genre }}
-            </option>
-        <!-- <option v-for="(genre, i) in filteredByGenre" :key="i" :value="genre.value" ></option> -->
-        <!-- <option value="Jazz">jazz</option>
-        <option value="Metal">metal</option>
-        <option value="Rock">rock</option>
-        <option value="Pop">pop</option> -->
-    </select>
-
       <div class="container deck">
 
         <BaseCard v-for="(card, i) in cards" :key="i" :card="card" />
-
 
       </div>
     </main>
@@ -29,10 +16,13 @@ name:"MainContent",
 components: {BaseCard},
 data(){
         return{
-            genreSelected:"",
+            genreChoosed:"",
             cards: [],
             genres: []
         }
+    },
+    computed: {
+   
     },
     mounted(){
         axios.get('https://flynn.boolean.careers/exercises/api/array/music')
