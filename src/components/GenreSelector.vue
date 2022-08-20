@@ -1,5 +1,6 @@
 <template>
-     <select name="search-for-genre" id="search-for-genre" v-model="selectChoosed" >
+     <select name="search-for-genre" id="search-for-genre" @change="myChange" v-model="genreSelected" >
+     <option value="">--Seleziona un Genere--</option>
         <option v-for="(genre,i) in genresList" :key="i" :value="genre" v-text="genre"></option>
        
     </select>
@@ -9,13 +10,19 @@
 export default {
 name: "GenreSelector",
 props:{
-    genresList: Array
+    genresList: Array,
+    
 },
 data(){
   return{
-    selectChoosed: "",
+    genreSelected: "",
   }
-}
+},
+methods: {
+    myChange() {
+      this.$emit("genre-choosed", this.genreSelected);
+    },
+  },
 }
 </script>
 

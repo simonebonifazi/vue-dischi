@@ -1,6 +1,6 @@
 <template>
   <div>
-    <BaseHeader :genresList="genresList" />
+    <BaseHeader :genresList="genresList" @genre-change="setSelectGender" />
     <MainContent :cards="cards"  />
    
   </div>
@@ -19,7 +19,9 @@ export default {
   data(){
     return{
         cards: [],
-        genresList: []
+        genresList: [],
+        genreSelected: "",
+
     }
   },
   methods:{
@@ -31,8 +33,18 @@ export default {
           this.cards.forEach((card) => {
           if (!this.genresList.includes(card.genre)) this.genresList.push(card.genre);})
     })
-    }
+    },
+    filteredCardByGender(){
+      const find = this.genreSelected;
+      return this.cards.filter((card)=>{card.genre.includes(find)
+      })
+    },
+    setSelectGender(genre){
+      this.genreSelected = genre
+    },
+
   },
+ 
       mounted(){
    this.getAllCards()
 },

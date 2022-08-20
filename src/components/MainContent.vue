@@ -1,11 +1,11 @@
 <template>
-     <main>
-      <div class="container deck">
+  <main>
+    <div class="container deck">
 
-        <BaseCard v-for="(card, i) in cards" :key="i" :card="card" />
+      <BaseCard v-for="(card, i) in cards" :key="i" :card="card" />
 
-      </div>
-    </main>
+    </div>
+  </main>
 </template>
 
 <script>
@@ -16,9 +16,6 @@ name:"MainContent",
 components: {BaseCard},
 data(){
         return{
-         
-          
-          
         }
     },
     props:{
@@ -26,7 +23,12 @@ data(){
       
     },
     computed: {
-   
+      filteredCards(){
+        return this.cards.filter((card)=>{
+          if(card.genre === this.cards) return true;
+          else return false;
+        })
+      }
     },
 
 }

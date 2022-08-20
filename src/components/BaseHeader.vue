@@ -1,11 +1,12 @@
 <template>
-  <header> 
-      <figure>
-        <img src="https://th.bing.com/th/id/R.57dd160d1e8f82b1113ca3f73393621c?rik=EHp%2bG6a6uyaHaA&pid=ImgRaw&r=0" alt="logo">
-      </figure>
-     
-      <GenreSelector :genresList="genresList" />
- 
+  <header>
+    <figure>
+      <img src="https://th.bing.com/th/id/R.57dd160d1e8f82b1113ca3f73393621c?rik=EHp%2bG6a6uyaHaA&pid=ImgRaw&r=0"
+        alt="logo">
+    </figure>
+
+    <GenreSelector :genresList="genresList" @genre-choosed="getGenreValue" />
+
   </header>
 </template>
 
@@ -16,6 +17,12 @@ name: "BaseHeader",
  components: {GenreSelector,},
 props: {
   genresList: Array
+},
+methods:{
+  getGenreValue(genre){
+    this.$emit("genre-change", genre);
+  
+  }
 }
 
 }
