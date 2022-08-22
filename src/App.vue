@@ -1,15 +1,15 @@
 <template>
   <div>
-    <BaseHeader :genresList="genresList" @genre-change="setSelectGender" />
-    <MainContent :cards="cards"  />
+    <BaseHeader :genres-list="genresList" @genre-change="setSelectGender" />
+    <MainContent :cards="cards" :selected-genre="selectedGenre" />
    
   </div>
 </template>
 
 <script>
-import axios from 'axios'
-import BaseHeader from './components/BaseHeader.vue'
-import MainContent from './components/MainContent.vue'
+import axios from 'axios';
+import BaseHeader from './components/BaseHeader.vue';
+import MainContent from './components/MainContent.vue';
 export default {
   name: 'SpotyDemo',
   components: {
